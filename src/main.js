@@ -5,9 +5,9 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { MotionPlugin } from "@vueuse/motion";
 
-import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
+import { faSun, faMoon, faBars } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faSun, faMoon);
+library.add(faSun, faMoon, faBars);
 
 createApp(App)
   .use(MotionPlugin)
