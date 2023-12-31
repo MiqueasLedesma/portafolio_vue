@@ -1,6 +1,5 @@
 <template>
-    <section id="projects" class="parallax_section">
-        <div class="parallax_bg" style="background-image: url(/public/waveInvert.svg);"></div>
+    <section id="projects" ref="target">
         <h2 v-motion-pop-visible>patata</h2>
     </section>
 </template>
@@ -8,4 +7,8 @@
 <script setup>
 </script>
 
-<style  scoped></style>
+<style scoped>
+section {
+    background-color: #d6d7ed;
+}
+</style>

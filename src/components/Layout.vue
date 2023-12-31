@@ -1,28 +1,27 @@
 <template>
-    <div class="parallax_container">
+    <div>
         <header>
-            <ul :style="global.inView ? 'color: #fff;' : 'color: #000;'">
-                <li @click="() => scrollToSection('about')">About</li>
-                <li @click="() => scrollToSection('projects')">Projects</li>
-                <li @click="() => scrollToSection('skills')">Skills</li>
-                <li @click="() => scrollToSection('contact')">Contact</li>
+            <ul>
+                <li @click="() => scrollToSection('about')">Inicio</li>
+                <li @click="() => scrollToSection('projects')">Proyectos</li>
+                <li @click="() => scrollToSection('skills')">Habilidades</li>
+                <li @click="() => scrollToSection('contact')">Contacto</li>
+                <li @click="() => console.log('resume')">
+                    <a href="/public/Miqueas_Ledesma.pdf" target="_blank" rel="noopener noreferrer">Resumen</a>
+                </li>
                 <li @mouseover="handleMouseOver" @mouseout="handleMouseOut">
                     <font-awesome-icon icon="fa-solid fa-sun" :flip="isHover" />
                 </li>
             </ul>
         </header>
-        <main class="parallax_wrapper">
+        <main>
             <slot></slot>
         </main>
     </div>
 </template>
 
 <script setup>
-import { ref, provide } from "vue";
-
-const global = ref({ darkmode: false, lang: false, inView: "" });
-
-provide("global", global);
+import { ref } from "vue";
 
 const isHover = ref(false);
 
@@ -57,7 +56,8 @@ header {
 }
 
 ul {
-    background-color: transparent;
+    backdrop-filter: blur(1px);
+    background-color: rgba(255, 255, 255, 0.3);
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -68,10 +68,29 @@ li {
     padding: 1em;
     cursor: pointer;
     transition: all ease-in 100ms;
+    /* color: #fff; */
+    margin: 0;
+    font-size: 18px;
+    text-shadow: 2px 2px 2px rgb(0, 0, 0, 0.4);
+    text-align: center;
+    text-transform: uppercase;
 }
 
 li:hover {
     transition: all ease-in 100ms;
     scale: 1.1;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+@media (max-width: 768px) {
+    
 }
 </style>
